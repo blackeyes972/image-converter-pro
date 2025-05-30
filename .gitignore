@@ -127,6 +127,5 @@ tramp
 config.json
 setup_commands.sh
 docs/
-assets/
 local/
 script/
