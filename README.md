@@ -11,7 +11,7 @@
 
 Image Converter Pro è un'applicazione desktop avanzata per la conversione batch di immagini, costruita con PyQt6 e dotata di funzionalità professionali come logging strutturato, tracking della cronologia, validazione dati robusta e monitoraggio errori.
 
-![Image Converter Pro Screenshot](assets/screenshot-main.png)
+![Image Converter Pro Screenshot](assets/screenshots/screenshot-main.png)
 
 ---
 
@@ -46,47 +46,67 @@ Image Converter Pro è un'applicazione desktop avanzata per la conversione batch
 
 ---
 
+## 🔧 **Cosa Ho Aggiunto:**
+
+### **🎪 Sezione Extension Loading**
+- **Caricamento automatico** dell'ExtensionManager
+- **Integrazione GIF tab** nel tab widget principale  
+- **Signal connection** per status updates
+- **Error handling** robusto - se l'estensione fallisce, l'app continua normalmente
+
+### **📋 Menu Updates**
+- **Nuovo menu item** "GIF Tools" nel menu Tools
+- **Keyboard shortcut** Ctrl+G per passare al tab GIF
+- **Menu dinamico** che si aggiorna solo se l'estensione è caricata
+
+### **ℹ️ About Dialog Enhanced**
+- **Mostra estensioni caricate** dinamicamente
+- **Info aggiornate** che riflettono le capacità reali dell'app
+
+### **🧹 Cleanup Robusto**
+- **Cancellazione worker threads** GIF durante chiusura app
+- **Timeout protection** per evitare hang durante exit
+- **Graceful degradation** se le estensioni non sono presenti
+
+## 🎯 **Funzionalità Nuove:**
+
+### **🎬 Automatic GIF Tab Loading**
+- Se l'estensione GIF è presente → **Tab "GIF Tools" appare automaticamente**
+- Se l'estensione non c'è → **App funziona normalmente** senza errori
+
+### **⌨️ Keyboard Shortcuts**
+- **Ctrl+G** → Passa al tab GIF Tools (se presente)
+- **Ctrl+,** → Settings (esistente)  
+- **Ctrl+Q** → Exit (esistente)
+
+### **📊 Status Integration**
+- **Messaggi GIF** appaiono nella status bar principale
+- **Progress updates** integrati nell'UI main
+- **Error messages** consistent con il resto dell'app
+
+### **🔧 Extension API**
+- **`get_extension_manager()`** → Accesso all'extension manager
+- **`is_extension_loaded(name)`** → Check se estensione è caricata
+- **`get_loaded_extensions()`** → Lista estensioni attive
+
+## 🏆 **Vantaggi dell'Integrazione:**
+
+### **🔒 Sicurezza e Stabilità**
+- **Try/catch completo** per tutti i carricamenti estensioni
+- **Graceful degradation** se qualcosa va storto
+- **No breaking changes** al codice core esistente
+
+### **🎛️ User Experience**
+- **Interfaccia uniforme** - il tab GIF si integra perfettamente
+- **Menu consistency** - stesso stile degli altri menu
+- **Status bar sharing** - messaggi GIF nella stessa area
+
+### **🔧 Developer Experience**  
+- **Extension API** ben definita per future estensioni
+- **Logging consistente** per debugging
+- **Clean separation** tra core e extensions
+
 ## 🚀 **Quick Start**
-
-### **Per Utenti Finali**
-
-```bash
-# Download release
-wget https://github.com/blackeyes972/image-converter-pro/releases/latest/download/image-converter-pro.zip
-
-# Estrai e avvia
-unzip image-converter-pro.zip
-cd image-converter-pro
-./image-converter
-```
-
-### **Per Sviluppatori**
-
-```bash
-# Clone del repository
-git clone https://github.com/blackeyes972/image-converter-pro.git
-cd image-converter-pro
-
-# Setup ambiente sviluppo
-make dev-setup
-
-# Avvia l'applicazione
-make run
-```
-
----
-
-## 📋 **Installazione Dettagliata**
-
-### **Requisiti di Sistema**
-
-| Componente | Requisito Minimo | Raccomandato |
-|------------|------------------|--------------|
-| **OS** | Windows 10, macOS 10.15, Ubuntu 20.04 | Ultima versione |
-| **Python** | 3.8+ | 3.11+ |
-| **RAM** | 512 MB | 2 GB+ |
-| **Storage** | 100 MB | 500 MB+ |
-| **Display** | 1024x768 | 1920x1080+ |
 
 ### **Installazione da Sorgente**
 
@@ -122,28 +142,6 @@ make test
 
 # Avvio applicazione
 python main.py
-```
-
-### **Installazione con Package Manager**
-
-#### **Windows (Chocolatey)**
-```powershell
-choco install image-converter-pro
-```
-
-#### **macOS (Homebrew)**
-```bash
-brew install blackeyes972/tap/image-converter-pro
-```
-
-#### **Linux (apt)**
-```bash
-# Aggiungi repository
-sudo add-apt-repository ppa:blackeyes972/image-converter-pro
-sudo apt update
-
-# Installa
-sudo apt install image-converter-pro
 ```
 
 ---
@@ -249,58 +247,6 @@ image-converter-pro/
 
 ---
 
-## 🔧 **Sviluppo**
-
-### **Setup Ambiente Sviluppo**
-
-```bash
-# Clone e setup
-git clone https://github.com/blackeyes972/image-converter-pro.git
-cd image-converter-pro
-
-# Setup completo con un comando
-make dev-setup
-
-# Verifica tutto funzioni
-make check
-```
-
-### **Workflow Sviluppo**
-
-```bash
-# Durante sviluppo
-make format          # Auto-formatta codice
-make lint           # Controlla qualità
-make test           # Esegue test suite
-make run            # Avvia app per testing
-
-# Prima di commit
-make check          # Controllo completo (format + lint + test)
-```
-
-### **Testing**
-
-#### **Test Suite Completa**
-```bash
-# Test completi con coverage
-make test
-
-# Test specifici
-pytest tests/test_image_processor.py -v
-
-# Test UI (richiede display)
-pytest tests/test_ui.py --no-cov
-
-# Test di integrazione
-pytest tests/integration/ --slow
-```
-
-#### **Tipologie Test**
-- **🧪 Unit Tests**: Logica business e utilities
-- **🖼️ UI Tests**: Interfaccia e interazioni utente  
-- **🔗 Integration Tests**: Flussi end-to-end completi
-- **⚡ Performance Tests**: Benchmarking conversioni batch
-- **🔒 Security Tests**: Validazione input e gestione errori
 
 ### **Code Quality**
 
@@ -318,146 +264,6 @@ Il progetto mantiene standard di qualità elevati attraverso:
 - **⏱️ Metrics**: Tempi conversione e throughput
 - **🐛 Error Tracking**: Sentry integration per errori produzione
 - **📊 Analytics**: Utilizzo features e pattern utenti
-
----
-
-## 🤝 **Contributing**
-
-Accogliamo contributi dalla community! Ecco come partecipare:
-
-### **🐛 Bug Reports**
-
-Usa il [template bug report](https://github.com/blackeyes972/image-converter-pro/issues/new?template=bug_report.md):
-
-```markdown
-**Descrizione Bug**
-Descrizione chiara del problema.
-
-**Riproduzione**
-Passi per riprodurre:
-1. Vai a '...'
-2. Clicca su '...'
-3. Vedi errore
-
-**Comportamento Atteso**
-Cosa dovrebbe succedere.
-
-**Screenshots**
-Se applicabile, aggiungi screenshots.
-
-**Ambiente**
-- OS: [e.g. Windows 10, Ubuntu 20.04]
-- Python: [e.g. 3.11.0]
-- App Version: [e.g. 3.0.0]
-```
-
-### **✨ Feature Requests**
-
-Usa il [template feature request](https://github.com/blackeyes972/image-converter-pro/issues/new?template=feature_request.md):
-
-```markdown
-**Problema/Necessità**
-Descrivi il problema che questa feature risolverebbe.
-
-**Soluzione Proposta**
-Descrizione della feature desiderata.
-
-**Alternative Considerate**
-Alternative che hai considerato.
-
-**Contesto Aggiuntivo**
-Qualsiasi altro contesto o screenshot.
-```
-
-### **🔧 Development Contributions**
-
-1. **Fork** il repository
-2. **Crea branch** (`git checkout -b feature/amazing-feature`)
-3. **Sviluppa** seguendo le guidelines
-4. **Testa** (`make check`)
-5. **Commit** (`git commit -m 'Add: amazing feature'`)
-6. **Push** (`git push origin feature/amazing-feature`)
-7. **Apri PR** con descrizione dettagliata
-
-### **📋 Development Guidelines**
-
-#### **Code Style**
-```bash
-# Formattazione automatica
-make format
-
-# Controllo qualità
-make lint
-
-# Pre-commit completo
-make check
-```
-
-#### **Testing Requirements**
-- ✅ **Unit tests** per nuova logica business
-- ✅ **Integration tests** per nuove features
-- ✅ **UI tests** per nuovi componenti interface
-- ✅ **Coverage** mantenuto > 95%
-
-#### **Documentation**
-- 📝 **Docstrings** per tutte le funzioni pubbliche
-- 📋 **Type hints** per parametri e return values
-- 📖 **README updates** per nuove features
-- 🔗 **Changelog** entry per modifiche user-facing
-
----
-
-## 📦 **Deployment e Distribuzione**
-
-### **Build Release**
-
-```bash
-# Build completo
-make build
-
-# Verifica package
-make check-package
-
-# Upload a PyPI (maintainers only)
-make upload
-```
-
-### **Packaging per Diverse Piattaforme**
-
-#### **Windows Executable**
-```bash
-# Installa PyInstaller
-pip install pyinstaller
-
-# Build executable
-pyinstaller --onefile --windowed main.py
-
-# Output: dist/main.exe
-```
-
-#### **macOS App Bundle**
-```bash
-# Build con py2app
-python setup_mac.py py2app
-
-# Output: dist/Image Converter Pro.app
-```
-
-#### **Linux AppImage**
-```bash
-# Build AppImage
-./build-appimage.sh
-
-# Output: Image-Converter-Pro-x86_64.AppImage
-```
-
-### **Distribution Channels**
-
-- **🐍 PyPI**: `pip install image-converter-pro`
-- **🪟 Windows Store**: Microsoft Store listing
-- **🍎 Mac App Store**: macOS distribution
-- **🐧 Linux Repos**: Ubuntu PPA, AUR, Flatpak
-- **📦 GitHub Releases**: Direct downloads
 
 ---
 
@@ -542,53 +348,15 @@ make clean && make dev-setup
 - Testa con file più piccoli
 - Apri issue con log allegati
 
-### **Getting Help**
 
-- **📖 Documentation**: [docs.image-converter-pro.dev](https://docs.image-converter-pro.dev)
-- **💬 Community**: [GitHub Discussions](https://github.com/blackeyes972/image-converter-pro/discussions)
-- **🐛 Bug Reports**: [GitHub Issues](https://github.com/blackeyes972/image-converter-pro/issues)
-- **📧 Direct Contact**: [alessandro@image-converter-pro.dev](mailto:alessandro@image-converter-pro.dev)
-
-### **Enterprise Support**
-
-Per organizzazioni e team di sviluppo:
-- **🏢 Priority support** con SLA garantito
-- **🔧 Custom features** development
-- **📚 Training** e onboarding team
-- **⚙️ Integration** con sistemi esistenti
-
-Contatta: [enterprise@image-converter-pro.dev](mailto:enterprise@image-converter-pro.dev)
-
----
 
 ## 🗺️ **Roadmap**
 
-### **v3.1.0** (Q2 2025)
+### **v3.2.0** (Q2 2025)
 - [ ] **🎨 Advanced filters**: Blur, sharpen, color adjustment
 - [ ] **📱 Mobile companion app**: Remote control via smartphone
 - [ ] **☁️ Cloud storage integration**: Google Drive, Dropbox, OneDrive
 - [ ] **🤖 AI-powered optimization**: Smart quality settings
-
-### **v3.2.0** (Q3 2025)
-- [ ] **🎥 Video conversion**: Basic video format support
-- [ ] **📦 Plugin system**: Extensible architecture
-- [ ] **🌐 Web interface**: Browser-based remote access
-- [ ] **🔄 Sync capabilities**: Multi-device synchronization
-
-### **v4.0.0** (Q4 2025)
-- [ ] **🧠 ML integration**: Content-aware processing
-- [ ] **🎯 Batch automation**: Rule-based processing
-- [ ] **📊 Advanced analytics**: Detailed usage insights
-- [ ] **🏢 Enterprise features**: Multi-user, permissions, audit
-
-### **Community Requests**
-Vote su [GitHub Discussions](https://github.com/blackeyes972/image-converter-pro/discussions/categories/feature-requests):
-- **HDR support** (🔥 Most requested)
-- **Command line interface**
-- **HEIC/HEIF support**
-- **Watermarking capabilities**
-- **Metadata preservation options**
-
 ---
 
 ## 📄 **License**
@@ -647,14 +415,13 @@ Ringraziamenti speciali ai maintainer di:
 
 ### **Project Maintainer**
 - **👤 Alessandro Castaldi**
-- **📧 Email**: [alessandro@image-converter-pro.dev](mailto:alessandro@image-converter-pro.dev)
-- **🐙 GitHub**: [@alessandro](https://github.com/blackeyes972)
-- **🐦 Twitter**: [@alessandro_dev](https://twitter.com/Alessandro__dev)
-- **💼 LinkedIn**: [Alessandro Castaldi](https://linkedin.com/in/alessandro-castaldi)
+- **📧 Email**: [notifiche72@gmail.com](mailto:notifiche72@gmail.com)
+- **🐙 GitHub**: [@blackeyes972](https://github.com/blackeyes972)
+- **🐦 Twitter**: [@alessandro_dev](https://x.com/blackeyes972)
+- **💼 LinkedIn**: [Alessandro Castaldi](https://www.linkedin.com/in/alessandro-castaldi-663846a5/)
 
 ### **Project Links**
 - **🐙 Repository**: [github.com/blackeyes972/image-converter-pro](https://github.com/blackeyes972/image-converter-pro)
-- **🗨️ Discussions**: [GitHub Discussions](https://github.com/blackeyes972/image-converter-pro/discussions)
 
 ---
 
@@ -663,7 +430,6 @@ Ringraziamenti speciali ai maintainer di:
 **⭐ Se ti piace questo progetto, lascia una stella su GitHub! ⭐**
 
 [![GitHub stars](https://img.shields.io/github/stars/blackeyes972/image-converter-pro.svg?style=social&label=Star)](https://github.com/blackeyes972/image-converter-pro/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/blackeyes972/image-converter-pro.svg?style=social&label=Fork)](https://github.com/blackeyes972/image-converter-pro/network)
 
 ---
 
