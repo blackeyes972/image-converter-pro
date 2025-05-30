@@ -357,6 +357,8 @@ make clean && make dev-setup
 - [ ] **📱 Mobile companion app**: Remote control via smartphone
 - [ ] **☁️ Cloud storage integration**: Google Drive, Dropbox, OneDrive
 - [ ] **🤖 AI-powered optimization**: Smart quality settings
+- [ ] **🤖 Multi-language support**: Multi-language support
+
 ---
 
 ## 📄 **License**
