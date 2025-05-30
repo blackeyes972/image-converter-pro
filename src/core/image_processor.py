@@ -1,6 +1,7 @@
 """Image processing engine with threading support"""
 
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, Tuple, Callable, Dict, Any
 from PIL import Image, ImageOps

@@ -649,14 +649,11 @@ Ringraziamenti speciali ai maintainer di:
 - **👤 Alessandro Castaldi**
 - **📧 Email**: [alessandro@image-converter-pro.dev](mailto:alessandro@image-converter-pro.dev)
 - **🐙 GitHub**: [@alessandro](https://github.com/blackeyes972)
-- **🐦 Twitter**: [@alessandro_dev](https://twitter.com/alessandro_dev)
+- **🐦 Twitter**: [@alessandro_dev](https://twitter.com/Alessandro__dev)
 - **💼 LinkedIn**: [Alessandro Castaldi](https://linkedin.com/in/alessandro-castaldi)
 
 ### **Project Links**
-- **🏠 Homepage**: [image-converter-pro.dev](https://image-converter-pro.dev)
-- **📚 Documentation**: [docs.image-converter-pro.dev](https://docs.image-converter-pro.dev)
 - **🐙 Repository**: [github.com/blackeyes972/image-converter-pro](https://github.com/blackeyes972/image-converter-pro)
-- **📦 PyPI**: [pypi.org/project/image-converter-pro](https://pypi.org/project/image-converter-pro)
 - **🗨️ Discussions**: [GitHub Discussions](https://github.com/blackeyes972/image-converter-pro/discussions)
 
 ---
