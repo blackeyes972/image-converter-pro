@@ -419,7 +419,7 @@ Ringraziamenti speciali ai maintainer di:
 - **👤 Alessandro Castaldi**
 - **📧 Email**: [notifiche72@gmail.com](mailto:notifiche72@gmail.com)
 - **🐙 GitHub**: [@blackeyes972](https://github.com/blackeyes972)
-- **🐦 Twitter**: [@alessandro_dev](https://x.com/blackeyes972)
+- **🐦 Twitter**: [@blackeyes972](https://x.com/blackeyes972)
 - **💼 LinkedIn**: [Alessandro Castaldi](https://www.linkedin.com/in/alessandro-castaldi-663846a5/)
 
 ### **Project Links**
